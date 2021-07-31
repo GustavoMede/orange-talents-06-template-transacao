@@ -1,6 +1,7 @@
 package br.com.zupacademy.gustavo.transacao.eventoTransacao;
 
 import br.com.zupacademy.gustavo.transacao.cartao.Cartao;
+import br.com.zupacademy.gustavo.transacao.compras.Compra;
 import br.com.zupacademy.gustavo.transacao.estabelecimento.Estabelecimento;
 
 import java.math.BigDecimal;
@@ -46,5 +47,8 @@ public class TransactionResponse {
         return efetivadaEm;
     }
 
-
+    public Compra converte() {
+        return new Compra(this.id, this.valor, this.estabelecimento.getNome(), this.cartao.getId(),
+                this.efetivadaEm);
+    }
 }
